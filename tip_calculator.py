@@ -1,17 +1,26 @@
-print("Welcome to the tip calculator")
+while True:
 
-total_bill = float(input("What was the total bill? $"))
+    try:
 
-tip_percentage = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
+        print("Welcome to the tip calculator")
 
-people_count = int(input("How many people to split the bill? "))
+        total_bill = float(input("What was the total bill? $"))
+        tip_percentage = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
+        people_count = int(input("How many people to split the bill? "))
 
-tip_amount = total_bill * (tip_percentage / 100)
+        tip_amount = total_bill * (tip_percentage / 100)
+        new_total_bill = total_bill + tip_amount
 
-new_total_bill = total_bill + tip_amount
+        # Can format in both ways
+        amount_for_an_individual = "{:.2f}".format(new_total_bill / people_count)
+        # amount_for_an_individual = format(new_total_bill / people_count, '.2f')
 
-amount_for_an_individual = round(new_total_bill / people_count, 2)
+        message = f"Each person should pay: ${amount_for_an_individual}"
 
-message = f"Each person should pay: ${amount_for_an_individual}"
+        print(message)
 
-print(message)
+        break
+
+    except:
+
+        print("Please enter appropriate values as inputs")
